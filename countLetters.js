@@ -1,12 +1,15 @@
 function countLetters(input){
   var resultObj = {}
-  var noSpaces = input.toLowerCase().split(" ").join("");
+  var lower = input.toLowerCase();
 
-  for (str of noSpaces){
-    resultObj[str] ? resultObj[str] += 1 : resultObj[str] = 1;
+  for (var i = 0 ; i < lower.length - 1 ; i +=1 ){
+    let str = lower.charAt(i);
+      if (str !== " "){
+        resultObj[str] ? resultObj[str] += (" " + i) : resultObj[str] = "" + i;
+      }
   }
 
   return resultObj;
 }
 
-console.log(countLetters("Lighthouse in the house"));
+console.log(countLetters("Lighthouse In the house"));
